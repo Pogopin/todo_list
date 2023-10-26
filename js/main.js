@@ -22,17 +22,13 @@ class Todo_list {
         do_list.push(this);
     }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1042cb752c9a23dce08d25d41ae7f25123b80927
 btn.addEventListener('click', event => {
     if(!input.value) {
         alert('Заполни поле задачи!')
         return;
     }
     let inp = input.value;
-
     uppend_task(inp); //добавляем задачу на страницу
     input.value = ''; // очистка поле ввода
 });
@@ -41,10 +37,6 @@ items.addEventListener('click', (event) => {
     if(event.target.dataset.action === 'delete') delete_task(event.target);
     if(event.target.dataset.action === 'done') done(event.target);
 })
-<<<<<<< HEAD
-
-=======
->>>>>>> 1042cb752c9a23dce08d25d41ae7f25123b80927
 function uppend_task(text_task) {
     let id_task = Date.now();// генератор ID
     let template = `<li id = "${id_task}" class="todo__list-item">${text_task}<i class="fa fa2 fa-check" data-action="done" aria-hidden="true"></i><i class="fa fa-trash" data-action="delete" aria-hidden="true"></i></li>`;
@@ -70,34 +62,21 @@ function done(target) {
     for(let key of do_list) {//меняем состояние задачи в объекте                
         if(key.id === parseInt(target.closest('.todo__list-item').id)) {//сравниваем по id задачи
             key.status = key.status ^ 1;
-<<<<<<< HEAD
-            // console.log(key);
-=======
-            console.log(key);
->>>>>>> 1042cb752c9a23dce08d25d41ae7f25123b80927
         };        
     };
     target.closest('.todo__list-item').classList.toggle('done__list-item');
     saveToLocalSt();    
 }
 function saveToLocalSt() {
-<<<<<<< HEAD
-    localStorage.setItem('tasks', JSON.stringify(do_list));}
-
-=======
-    localStorage.setItem('tasks', JSON.stringify(do_list));
+    localStorage.setItem('tasks', JSON.stringify(do_list));    
 }
->>>>>>> 1042cb752c9a23dce08d25d41ae7f25123b80927
 function renderListToHTML () {
     do_list.forEach(el => {
         if(el.status) {
             template = `<li id = "${el.id}" class="todo__list-item done__list-item">${el.task}<i class="fa fa2 fa-check" data-action="done" aria-hidden="true"></i><i class="fa fa-trash" data-action="delete" aria-hidden="true"></i></li>`;
         } else {
             template = `<li id = "${el.id}" class="todo__list-item">${el.task}<i class="fa fa2 fa-check" data-action="done" aria-hidden="true"></i><i class="fa fa-trash" data-action="delete" aria-hidden="true"></i></li>`;
-<<<<<<< HEAD
 
-=======
->>>>>>> 1042cb752c9a23dce08d25d41ae7f25123b80927
         }       
         items.insertAdjacentHTML('beforeend', template);
     })
